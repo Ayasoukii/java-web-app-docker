@@ -1,33 +1,32 @@
 package com.rst.helloworld.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.rst.helloworld.db.DBConnection;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 @Service
 public class HelloWorldService {
 
-	private static final Logger logger = LoggerFactory.getLogger(HelloWorldService.class);
+    public void insertEmployee() {
+        try (Connection con = DBConnection.getConnection()) {
 
-	public String getDesc() {
+            String sql = "INSERT INTO employee(name, role) VALUES (?, ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, "DockerUser");
+            ps.setString(2, "Engineer");
 
-		logger.debug("getDesc() is executed!");
+            ps.executeUpdate();
+            System.out.println("Employee inserted successfully");
 
-		return "Maven + Spring MVC + Jenkins + Docker Example";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	}
-
-	public String getTitle(String name) {
-
-		logger.debug("getTitle() is executed! $name : {}", name);
-
-		if(StringUtils.isEmpty(name)){
-			return "Hello Docker";
-		}else{
-			return "Hello " + name;
-		}
-		
-	}
-
+    public String getDesc() {
+        insertEmployee();
+        return "Maven + Spring MVC + Jenkins + Docker + MySQL";
+    }
 }
