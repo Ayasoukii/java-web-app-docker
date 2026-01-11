@@ -29,4 +29,13 @@ public class HelloWorldService {
         insertEmployee();
         return "Maven + Spring MVC + Jenkins + Docker + MySQL";
     }
+
+    // ✅ MÉTHODE MANQUANTE
+    public String getTitle(String name) {
+        if (name == null || name.isEmpty()) {
+            return "Welcome";
+        }
+        return "Welcome " + name;
+    }
 }
+
