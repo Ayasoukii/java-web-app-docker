@@ -12,11 +12,11 @@ import java.util.Random;
 public class AutoInsertEmployee {
 
     private static final String[] NOMS = {
-            "Ali", "Sami", "Amine", "Mohamed", "Karim", "Aya", "Nour"
+            "Ali", "Sami", "Amine", "Youssef", "Karim", "Aya", "Nour"
     };
 
     private static final String[] PRENOMS = {
-            "Ben Salah", "Trabelsi", "Karray", "souki", "Gharbi"
+            "Ben Salah", "Trabelsi", "Karray", "Mansouri", "Gharbi"
     };
 
     private static final String[] VILLES = {
@@ -47,8 +47,8 @@ public class AutoInsertEmployee {
             ps.executeUpdate();
 
             System.out.println(
-                "[AUTO-INSERT] Employé ajouté : "
-                + nom + " " + prenom + " | Ville : " + ville
+                    "[AUTO-INSERT] Employé ajouté : "
+                            + nom + " " + prenom + " | Ville : " + ville
             );
 
         } catch (Exception e) {
@@ -57,3 +57,4 @@ public class AutoInsertEmployee {
         }
     }
 }
+
