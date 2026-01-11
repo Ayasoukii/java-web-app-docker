@@ -63,12 +63,44 @@
             <optional>true</optional>
         </dependency>
 
+<<<<<<< HEAD
         <!-- Tests -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+=======
+	</dependencies>
+	
+	<!-- <distributionManagement>
+	    <repository>
+	      <id>nexus</id>
+	      <name>Mithun Technologies Releases Nexus Repository</name>
+	      <url>http://13.235.8.113:8081/repository/flipkart-release/</url>
+	    </repository>
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>Mithun Technologies Snapshot Nexus Repository </name>
+	      <url>http://13.235.8.113:8081/repository/flipkart-snapshot/</url>
+	    </snapshotRepository>
+	</distributionManagement> -->
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version>
+				<inherited>true</inherited>
+
+				<configuration>
+					<source>17</source>
+					<target>17</target>
+				</configuration>
+			</plugin>
+	
+>>>>>>> d1c2b6c (Fix: clean pom.xml UTF-8 without BOM and remove invisible spaces)
 
     </dependencies>
 
