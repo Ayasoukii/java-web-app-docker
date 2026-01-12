@@ -1,0 +1,36 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: emp_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: employees_db
+      MYSQL_USER: aya
+      MYSQL_PASSWORD: aya
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - emp-network
+
+  app:
+    image: ayasouki/emp-app:1.0
+    container_name: emp_app
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "8090:8080"
+    networks:
+      - emp-network
+
+volumes:
+  mysql_data:
+
+networks:
+  emp-network:
+    driver: bridge
